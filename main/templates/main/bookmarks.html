@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% for bookmark in object_list %}
+<p>{{ bookmark.url }} </p>
+{% endfor %}
+
+<a href="{% url 'main:add-bookmark' %}">Добавить закладку</a>
+{% endblock %}

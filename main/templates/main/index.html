@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block content %}
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-center mt-5">
+                <h1>Добро пожаловать в Bookmarks app</h1>
+                <p class="lead">простое приложение для хранения ваших закладок</p>
+               {% if user.is_anonymous %}
+                <p>войдите или зарегистрируйтесь чтобы начать работу</p>
+                {% endif %}
+            </div>
+        </div>
+{% endblock %}
