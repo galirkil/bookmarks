@@ -6,7 +6,7 @@ from users.models import User
 class Bookmark(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     title = models.CharField(max_length=256)
-    url = models.URLField()
+    url = models.URLField(default='https://')
     description = models.TextField()
     favicon = models.ImageField(upload_to='url_icons', null=True, blank=True)
 
