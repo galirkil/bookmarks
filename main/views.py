@@ -36,4 +36,3 @@ class BookmarkCreateView(LoginRequiredMixin, TitleMixin, SuccessMessageMixin, Cr
         response = super().form_valid(form)
         get_bookmark_info.delay(self.request.POST['url'], self.request.user.id)
         return response
-
