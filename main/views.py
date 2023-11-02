@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -25,6 +26,7 @@ class BookmarksListView(LoginRequiredMixin, TitleMixin, ListView):
         return Bookmark.objects.filter(user=self.request.user)
 
 
+@login_required
 def add_bookmark(request):
     if request.method == 'POST':
         bookmark = Bookmark(user=request.user)
