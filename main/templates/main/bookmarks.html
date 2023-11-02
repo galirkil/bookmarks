@@ -2,8 +2,17 @@
 
 {% block content %}
 {% for bookmark in object_list %}
-<p>{{ bookmark.url }} </p>
+<div class="list-group">
+    <a href="{{ bookmark.url }}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">
+                <img width="32" height="32" src="{{ MEDIA_URL }}{{ bookmark.favicon }}" class="img-thumbnail">
+                {{ bookmark.title }}
+            </h5>
+        </div>
+        <p class="mb-1">{{ bookmark.description }}</p>
+        <small>{{ bookmark.url }}</small>
+    </a>
+</div>
 {% endfor %}
-
-<a href="{% url 'main:add-bookmark' %}">Добавить закладку</a>
 {% endblock %}
