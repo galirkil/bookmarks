@@ -35,7 +35,8 @@ def get_description(url: str) -> str:
     if soup.find_all('meta', property='og:description'):
         description = soup.find('meta', property='og:description')['content']
     elif soup.find_all('meta', attrs={'name': 'description'}):
-        description = soup.find('meta', attrs={'name': 'description'})['content']
+        description = soup.find('meta',
+                                attrs={'name': 'description'})['content']
 
     return description
 

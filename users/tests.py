@@ -20,7 +20,8 @@ class UserRegistrationViewTestCase(TestCase):
         response = self.client.get(self.path)
 
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertEqual(response.context_data['title'], 'Bookmarks - Регистрация')
+        self.assertEqual(response.context_data['title'],
+                         'Bookmarks - Регистрация')
         self.assertTemplateUsed(response, 'users/register.html')
 
     def test_user_registration_post_success(self):
@@ -39,4 +40,8 @@ class UserRegistrationViewTestCase(TestCase):
         response = self.client.post(self.path, self.data)
 
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        self.assertContains(response, 'A user with that username already exists.', html=True)
+        self.assertContains(
+            response,
+            'A user with that username already exists.',
+            html=True
+        )

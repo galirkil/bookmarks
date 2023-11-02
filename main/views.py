@@ -43,4 +43,3 @@ def add_bookmark(request):
         'title': 'Bookmarks - Добавить закладку',
     }
     return render(request, 'main/add-bookmark.html', context)
-
